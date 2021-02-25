@@ -82,25 +82,28 @@ class NewViewController: UIViewController {
                     
                     
                     let answervotesElement = try doc.getElementsByClass("js-vote-count").array()
-                    let answervotesData = try answervotesElement[1].text()
-                    do {
-                        answervotesLabel.text = answervotesData
+                    if answervotesElement.count > 0 {
+                        let answervotesData = try answervotesElement[0].attr("data-value")//.text()
+                        do {
+                            answervotesLabel.text = answervotesData
+                        }
                     }
-                    
                     
                     let answerdateElement = try doc.getElementsByClass("user-action-time").array()
-                    let answerdateData = try answerdateElement[2].text()
-                    do {
-                        answerdateLabel.text = answerdateData
+                    if answerdateElement.count > 2 {
+                         let answerdateData = try answerdateElement[2].text()
+                        do {
+                            answerdateLabel.text = answerdateData
+                        }
                     }
-                    
                     
                     let answernameElement = try doc.getElementsByClass("user-details").array()
-                    let answernameData = try answernameElement[4].text()
-                    do {
-                        answernameLabel.text = answernameData
+                    if answernameElement.count > 4 {
+                        let answernameData = try answernameElement[4].text()
+                        do {
+                            answernameLabel.text = answernameData
+                        }
                     }
-                    
                     
                     do {
                         
